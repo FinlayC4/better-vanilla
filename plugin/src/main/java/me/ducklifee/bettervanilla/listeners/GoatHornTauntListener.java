@@ -7,13 +7,15 @@ import org.bukkit.entity.Monster;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 
 import io.papermc.paper.event.player.PlayerItemCooldownEvent;
 
 public class GoatHornTauntListener implements Listener {
 
     private static final int COOLDOWN_TICKS = 20 * 60; // 1 minute
-    private static final int TAUNT_RADIUS = 30; // 30 blocks
+    private static final int TAUNT_RADIUS = 25; // 30 blocks
     
     @EventHandler
     public void onPlayerItemCooldown(PlayerItemCooldownEvent event) {
@@ -41,7 +43,20 @@ public class GoatHornTauntListener implements Listener {
         );
 
         for (Monster monster : nearbyMonsters) {
-            monster.setTarget(player);
+            tauntMonster(monster, player);
         }
+    }
+
+    private static void tauntMonster(Monster monster, Player player) {
+        monster.setTarget(player);
+
+        // Give them a temporary speed boost
+        monster.addPotionEffect(new PotionEffect(
+            PotionEffectType.SPEED, 
+            60, // 3 seconds
+            1,
+            false, 
+            false
+        ));
     }
 }
