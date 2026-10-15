@@ -39,7 +39,6 @@ public class GoatHornTauntListener implements Listener {
             player.getLocation(),
             radius, radius, radius,
             monster -> !player.equals(monster.getTarget()) // Don't retarget monsters on the player
-                && monster.hasLineOfSight(player)
         );
 
         for (Monster monster : nearbyMonsters) {
