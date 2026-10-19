@@ -24,9 +24,9 @@ public class BetterVanilla extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        getLogger().info("BetterVanilla has been disabled.");
+        coordinatesHud.deactivate();
 
-        // Paper apparently ends any tasks on the scheduler on plugin disable
+        getLogger().info("BetterVanilla has been disabled.");
     }
 
     @Override
