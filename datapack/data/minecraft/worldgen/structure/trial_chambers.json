@@ -134,10 +134,10 @@
   "start_height": {
     "type": "minecraft:uniform",
     "max_inclusive": {
-      "absolute": -20
+        "above_bottom": 44
     },
     "min_inclusive": {
-      "absolute": -40
+        "above_bottom": 24
     }
   },
   "start_pool": "minecraft:trial_chambers/chamber/end",
