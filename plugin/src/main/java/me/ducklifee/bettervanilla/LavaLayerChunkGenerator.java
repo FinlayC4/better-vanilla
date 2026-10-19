@@ -23,7 +23,11 @@ public class LavaLayerChunkGenerator extends ChunkGenerator {
         // the super method to ensure that the vanilla cave generation still occurs
         super.generateCaves(worldInfo, random, chunkX, chunkZ, chunkData);
 
-        stripLavaLayerFromChunk(worldInfo.getMinHeight(), LAVA_LAYER_START_Y, chunkData);
+        // Min height is bottom of the world
+        // + 10 so the last 10 Y levels retain the lava
+        int minY = worldInfo.getMinHeight() + 10;
+
+        stripLavaLayerFromChunk(minY, LAVA_LAYER_START_Y, chunkData);
     }
 
     private void stripLavaLayerFromChunk(int minY, int maxY, ChunkData chunkData) {
