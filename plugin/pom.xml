@@ -50,7 +50,7 @@
 		<dependency>
 			<groupId>io.papermc.paper</groupId>
 			<artifactId>paper-api</artifactId>
-			<version>1.21.11-R0.1-SNAPSHOT</version>
+			<version>26.3.build.206-stable</version>
 			<scope>provided</scope>
 		</dependency>
 	
@@ -102,7 +102,7 @@
                             <goal>copy-resources</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>C:/better-vanilla-mc-server/plugins</outputDirectory>
+                            <outputDirectory>C:/minecraft-servers/better-vanilla-server/plugins</outputDirectory>
                             <resources>
                                 <resource>
                                     <directory>${project.build.directory}</directory>
