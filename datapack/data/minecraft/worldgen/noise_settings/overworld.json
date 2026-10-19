@@ -105,8 +105,8 @@
   "legacy_random_source": false,
   "material_rule": "minecraft:overworld",
   "noise": {
-    "height": 384,
-    "min_y": -64
+    "height": 512,
+    "min_y": -192
   },
   "noise_router": {
     "chunk_surface_level": "minecraft:overworld/chunk_surface_level",
