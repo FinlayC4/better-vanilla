@@ -8,6 +8,9 @@ import org.bukkit.generator.WorldInfo;
 
 public class LavaLayerChunkGenerator extends ChunkGenerator {
 
+    // The Y level the lava layer in the world begins
+    private static final int LAVA_LAYER_START_Y = -55;
+
     @Override
     public void generateCaves(
         WorldInfo worldInfo,
@@ -20,7 +23,7 @@ public class LavaLayerChunkGenerator extends ChunkGenerator {
         // the super method to ensure that the vanilla cave generation still occurs
         super.generateCaves(worldInfo, random, chunkX, chunkZ, chunkData);
 
-        stripLavaLayerFromChunk(worldInfo.getMinHeight(), -55, chunkData);
+        stripLavaLayerFromChunk(worldInfo.getMinHeight(), LAVA_LAYER_START_Y, chunkData);
     }
 
     private void stripLavaLayerFromChunk(int minY, int maxY, ChunkData chunkData) {
