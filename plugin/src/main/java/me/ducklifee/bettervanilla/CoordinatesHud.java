@@ -18,7 +18,7 @@ public class CoordinatesHud {
         Material.COMPASS,
         Material.RECOVERY_COMPASS
     );
-    private static final long UPDATE_INTERVAL_TICKS = 5L;
+    private static final long UPDATE_INTERVAL_TICKS = 5L; // 20L = 1 second
 
     private final Plugin plugin;
     private BukkitTask task;
