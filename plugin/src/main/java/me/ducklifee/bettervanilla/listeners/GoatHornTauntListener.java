@@ -14,15 +14,15 @@ import io.papermc.paper.event.player.PlayerItemCooldownEvent;
 
 public class GoatHornTauntListener implements Listener {
 
-    private static final int COOLDOWN_TICKS = 20 * 60; // 1 minute
-    private static final int TAUNT_RADIUS = 25; // 30 blocks
+    private static final int COOLDOWN_TICKS = 20 * 60;
+    private static final int TAUNT_RADIUS = 25; // In blocks
     
     @EventHandler
     public void onPlayerItemCooldown(PlayerItemCooldownEvent event) {
         // Check that the goat horn was used
         if (event.getType() != Material.GOAT_HORN) return;
 
-        event.setCooldown(COOLDOWN_TICKS); // 1 minute cooldown
+        event.setCooldown(COOLDOWN_TICKS);
 
         Player player = event.getPlayer();
 
