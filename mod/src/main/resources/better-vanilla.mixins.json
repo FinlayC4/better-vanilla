@@ -1,0 +1,17 @@
+{
+	"required": true,
+	"package": "me.ducklifee.bettervanilla.mixin",
+	"compatibilityLevel": "JAVA_25",
+	"mixins": [
+		"NoiseBasedChunkGeneratorMixin",
+		"BedExplosionMixin",
+		"GoatHornUseMixin",
+		"LeafFallThroughMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	},
+	"overwrites": {
+		"requireAnnotations": true
+	}
+}

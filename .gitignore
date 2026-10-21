@@ -1,3 +1,26 @@
-.vscode/
+.vscode
 
 /plugin/target/
+local-config.json
+
+/mod/.gradle/
+/mod/build/
+/mod/out/
+/mod/classes/
+/mod/bin/
+/mod/.github/ 
+
+# macos
+
+*.DS_Store
+
+# fabric
+
+/mod/run/
+
+# java
+
+/mod/hs_err_*.log
+/mod/replay_*.log
+/mod/*.hprof
+/mod/*.jfr

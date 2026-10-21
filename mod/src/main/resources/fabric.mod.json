@@ -1,0 +1,38 @@
+{
+	"schemaVersion": 1,
+	"id": "better-vanilla",
+	"version": "${version}",
+	"name": "Better Vanilla",
+	"description": "This is an example description! Tell everyone what your mod is about!",
+	"authors": [
+		"DuckLifee"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/better-vanilla/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"me.ducklifee.bettervanilla.BetterVanilla"
+		],
+		"client": [
+			"me.ducklifee.bettervanilla.client.BetterVanillaClient"
+		]
+	},
+	"mixins": [
+		"better-vanilla.mixins.json",
+		{
+			"config": "better-vanilla.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.19.5",
+		"minecraft": "~26.3",
+		"java": ">=25",
+		"fabric-api": "*"
+	}
+}
