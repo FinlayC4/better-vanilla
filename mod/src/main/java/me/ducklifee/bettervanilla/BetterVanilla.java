@@ -3,11 +3,16 @@ package me.ducklifee.bettervanilla;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.item.v1.DefaultItemComponentEvents;
 import net.fabricmc.fabric.api.item.v1.DefaultItemComponentEvents.ModifyContext;
+import net.fabricmc.fabric.api.registry.LandPathTypeRegistry;
 import net.minecraft.resources.Identifier;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.component.Compostable;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.LeavesBlock;
+import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.level.storage.loot.providers.number.ints.ResolvableInt;
 
 import java.util.Map;
@@ -32,7 +37,7 @@ public class BetterVanilla implements ModInitializer {
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
 
-		LOGGER.info("Hello Fabric world!");
+		LOGGER.info("BetterVanilla mod initialised.");
 
 		DefaultItemComponentEvents.MODIFY.register(context -> {
 			
@@ -46,6 +51,8 @@ public class BetterVanilla implements ModInitializer {
 
 			registerMaxStackSizes(context);
 		});
+
+		makeLeavesBlocksPathfindable();
 
 		CoordinatesHud.register();
 	}
@@ -63,5 +70,14 @@ public class BetterVanilla implements ModInitializer {
 				);
 			});
 		});
+	}
+
+	private void makeLeavesBlocksPathfindable() {
+		// Make any block with the LEAVES block tag so entities can pathfind through it
+		for (Block block : BuiltInRegistries.BLOCK) {
+            if (block instanceof LeavesBlock) {
+                LandPathTypeRegistry.register(block, PathType.WALKABLE, PathType.WALKABLE);
+            }
+        }
 	}
 }
