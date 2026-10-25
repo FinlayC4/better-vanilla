@@ -1,19 +1,13 @@
 package me.ducklifee.bettervanilla;
 
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.item.v1.DefaultItemComponentEvents;
-import net.fabricmc.fabric.api.item.v1.DefaultItemComponentEvents.ModifyContext;
 import net.fabricmc.fabric.api.registry.LandPathTypeRegistry;
 import net.minecraft.resources.Identifier;
-import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.component.Compostable;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.pathfinder.PathType;
-import net.minecraft.world.level.storage.loot.providers.number.ints.ResolvableInt;
 
 import java.util.Map;
 
@@ -39,18 +33,33 @@ public class BetterVanilla implements ModInitializer {
 
 		LOGGER.info("BetterVanilla mod initialised.");
 
-		DefaultItemComponentEvents.MODIFY.register(context -> {
-			
-			// Make rotttn flesh compostable
-            context.modify(Items.ROTTEN_FLESH, builder -> {
-                builder.set(
-                    DataComponents.COMPOSTABLE,
-                    new Compostable(new ResolvableInt.Constant(3)) // Integer is layers to fill in composter
-                );
-			});
+		ItemComponentModifications.register();
 
-			registerMaxStackSizes(context);
-		});
+		/*context.modify(Items.DIAMOND_AXE, builder -> {
+			ItemAttributeModifiers modifiers = ItemAttributeModifiers.builder()
+				.add(
+					Attributes.ATTACK_DAMAGE,
+					new AttributeModifier(
+						Item.BASE_ATTACK_DAMAGE_ID,
+						4,
+						Operation.ADD_VALUE
+					),
+					EquipmentSlotGroup.MAINHAND
+				)
+				.add(
+					Attributes.ATTACK_SPEED,
+					new AttributeModifier(
+						Item.BASE_ATTACK_SPEED_ID,
+						-3,
+						Operation.ADD_VALUE
+					),
+					EquipmentSlotGroup.MAINHAND
+				)
+				.build();
+			
+			builder.set(DataComponents.ATTRIBUTE_MODIFIERS, modifiers);
+		});*/
+		
 
 		makeLeavesBlocksPathfindable();
 
@@ -59,17 +68,6 @@ public class BetterVanilla implements ModInitializer {
 
 	public static Identifier id(String path) {
 		return Identifier.fromNamespaceAndPath(MOD_ID, path);
-	}
-	
-	private static void registerMaxStackSizes(ModifyContext context) {
-		MAX_STACK_SIZES.forEach((item, maxStackSize) -> {
-			context.modify(item, builder -> {
-				builder.set(
-					DataComponents.MAX_STACK_SIZE,
-					maxStackSize
-				);
-			});
-		});
 	}
 
 	private void makeLeavesBlocksPathfindable() {
