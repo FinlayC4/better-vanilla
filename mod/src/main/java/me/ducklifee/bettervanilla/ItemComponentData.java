@@ -51,8 +51,15 @@ public final class ItemComponentData {
 
     // The max durability of items
     public static final Map<Item, Integer> MAX_DAMAGE = Map.ofEntries(
-        // Golden Items
-        Map.entry(Items.GOLDEN_PICKAXE, 500),
+        // Golden Weapons and Tools
+        Map.entry(Items.GOLDEN_SWORD, 750),
+        Map.entry(Items.GOLDEN_PICKAXE, 750),
+        Map.entry(Items.GOLDEN_SPEAR, 750),
+        Map.entry(Items.GOLDEN_SHOVEL, 750),
+        Map.entry(Items.GOLDEN_HOE, 750),
+        Map.entry(Items.GOLDEN_AXE, 750),
+
+        // Gold Armour
         Map.entry(Items.GOLDEN_HELMET, 248),
         Map.entry(Items.GOLDEN_CHESTPLATE, 336),
         Map.entry(Items.GOLDEN_LEGGINGS, 315),
