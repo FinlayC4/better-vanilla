@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "M": "minecraft:milk_bucket",
+    "B": "minecraft:sweet_berries",
+    "S": "minecraft:sugar",
+    "E": "minecraft:egg",
+    "W": "minecraft:wheat"
+  },
+  "pattern": [
+    "MBM",
+    "SES",
+    "WWW"
+  ],
+  "result": {
+    "id": "minecraft:cake"
+  }
+}
