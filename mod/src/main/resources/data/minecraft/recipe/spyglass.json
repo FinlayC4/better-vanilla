@@ -1,9 +1,9 @@
 {
   "type": "minecraft:crafting_shaped",
   "key": {
-    "G": "tinted_glass",
-    "I": "gold_ingot",
-    "C": "copper_ingot"
+    "G": "minecraft:tinted_glass",
+    "I": "minecraft:gold_ingot",
+    "C": "minecraft:copper_ingot"
   },
   "pattern": [
     "G",

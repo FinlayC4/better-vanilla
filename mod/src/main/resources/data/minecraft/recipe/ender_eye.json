@@ -1,11 +1,11 @@
 {
   "type": "minecraft:crafting_shaped",
   "key": {
-    "B": "blaze_powder",
-    "N": "netherite_scrap",
-    "E": "ender_pearl",
-    "M": "magma_cream",
-    "G": "ghast_tear"
+    "B": "minecraft:blaze_powder",
+    "N": "minecraft:netherite_scrap",
+    "E": "minecraft:ender_pearl",
+    "M": "minecraft:magma_cream",
+    "G": "minecraft:ghast_tear"
   },
   "pattern": [
     " B ",
