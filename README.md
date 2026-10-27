@@ -11,5 +11,5 @@ Better Vanilla is a Fabric mod for Minecraft 26.3 that enhances Vanilla Minecraf
 
 ## Credits
 
-**ChiefMeow** (@chiefmeow)
+**[ChiefMeow](https://github.com/chiefmeow)**
 A credit to ChiefMeow who has helped devise many of the ideas for Better Vanilla and suggested how to improve the progression of Vanilla Minecraft.
