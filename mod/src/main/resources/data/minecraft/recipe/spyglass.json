@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "G": "tinted_glass",
+    "I": "gold_ingot",
+    "C": "copper_ingot"
+  },
+  "pattern": [
+    "G",
+    "I",
+    "C"
+  ],
+  "result": {
+    "id": "minecraft:spyglass"
+  }
+}
