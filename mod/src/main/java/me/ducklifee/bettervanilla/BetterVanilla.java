@@ -1,14 +1,11 @@
 package me.ducklifee.bettervanilla;
 
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
 import net.fabricmc.fabric.api.registry.LandPathTypeRegistry;
 import net.minecraft.resources.Identifier;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.pathfinder.PathType;
@@ -22,9 +19,6 @@ import me.ducklifee.bettervanilla.mixin.RangedAttributeAccessor;
 
 public class BetterVanilla implements ModInitializer {
 	public static final String MOD_ID = "better-vanilla";
-
-	// Integer must not be more than 99 as this is max stack size
-	public static final Map<Item, Integer> MAX_STACK_SIZES = Map.ofEntries();
 
 	// This logger is used to write text to the console and the log file.
 	// It is considered best practice to use your mod id as the logger's name.
@@ -46,13 +40,6 @@ public class BetterVanilla implements ModInitializer {
 		makeLeavesBlocksPathfindable();
 
 		CoordinatesHud.register();
-
-		// Add glistering melon slice after melon slice in creative menu in Food and Drinks section
-		CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.FOOD_AND_DRINKS)
-			.register(creativeTab -> 
-				creativeTab.insertAfter(Items.MELON_SLICE, Items.GLISTERING_MELON_SLICE)
-			);
-	
 	}
 
 	public static Identifier id(String path) {
