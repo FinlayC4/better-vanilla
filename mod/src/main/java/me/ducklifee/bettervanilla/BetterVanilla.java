@@ -1,10 +1,14 @@
 package me.ducklifee.bettervanilla;
 
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
 import net.fabricmc.fabric.api.registry.LandPathTypeRegistry;
 import net.minecraft.resources.Identifier;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.pathfinder.PathType;
@@ -13,6 +17,8 @@ import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import me.ducklifee.bettervanilla.mixin.RangedAttributeAccessor;
 
 public class BetterVanilla implements ModInitializer {
 	public static final String MOD_ID = "better-vanilla";
@@ -33,37 +39,20 @@ public class BetterVanilla implements ModInitializer {
 
 		LOGGER.info("BetterVanilla mod initialised.");
 
+		((RangedAttributeAccessor) Attributes.ARMOR.value()).setMaxValue(40.0);
+
 		ItemComponentModifications.register();
-
-		/*context.modify(Items.DIAMOND_AXE, builder -> {
-			ItemAttributeModifiers modifiers = ItemAttributeModifiers.builder()
-				.add(
-					Attributes.ATTACK_DAMAGE,
-					new AttributeModifier(
-						Item.BASE_ATTACK_DAMAGE_ID,
-						4,
-						Operation.ADD_VALUE
-					),
-					EquipmentSlotGroup.MAINHAND
-				)
-				.add(
-					Attributes.ATTACK_SPEED,
-					new AttributeModifier(
-						Item.BASE_ATTACK_SPEED_ID,
-						-3,
-						Operation.ADD_VALUE
-					),
-					EquipmentSlotGroup.MAINHAND
-				)
-				.build();
-			
-			builder.set(DataComponents.ATTRIBUTE_MODIFIERS, modifiers);
-		});*/
 		
-
 		makeLeavesBlocksPathfindable();
 
 		CoordinatesHud.register();
+
+		// Add glistering melon slice after melon slice in creative menu in Food and Drinks section
+		CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.FOOD_AND_DRINKS)
+			.register(creativeTab -> 
+				creativeTab.insertAfter(Items.MELON_SLICE, Items.GLISTERING_MELON_SLICE)
+			);
+	
 	}
 
 	public static Identifier id(String path) {
