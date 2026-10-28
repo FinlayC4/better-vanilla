@@ -8,6 +8,7 @@ Better Vanilla is a Fabric mod for Minecraft 26.3 that enhances Vanilla Minecraf
 - Golden armour and tools buffed to sit between iron and diamond tier.
 - Rebalanced food items, with new max stack sizes, nutrition, and saturation values.
 - Chainmail armour is craftable, requiring iron chain as the ingredient.
+- Entities can now go through leaves blocks
 
 ## Credits
 
