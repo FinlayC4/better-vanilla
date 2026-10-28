@@ -6,7 +6,7 @@
 		"NoiseBasedChunkGeneratorMixin",
 		"BedExplosionMixin",
 		"GoatHornUseMixin",
-		"LeafFallThroughMixin"
+		"PassableLeavesMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
