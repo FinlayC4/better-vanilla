@@ -41,7 +41,8 @@ public final class ItemComponentData {
             Items.COOKED_COD,
             Items.COOKED_SALMON,
             Items.COOKED_BEEF,
-            Items.COOKED_RABBIT
+            Items.COOKED_RABBIT,
+            Items.GLISTERING_MELON_SLICE
         );
 
         setMaxStackSize(32,

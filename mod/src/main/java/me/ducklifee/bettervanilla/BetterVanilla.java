@@ -1,16 +1,16 @@
 package me.ducklifee.bettervanilla;
 
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
 import net.fabricmc.fabric.api.registry.LandPathTypeRegistry;
 import net.minecraft.resources.Identifier;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.item.Item;
+import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.pathfinder.PathType;
-
-import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -40,6 +40,12 @@ public class BetterVanilla implements ModInitializer {
 		makeLeavesBlocksPathfindable();
 
 		CoordinatesHud.register();
+
+		// Add glistering melon slice after melon slice in creative menu in Food and Drinks section
+		CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.FOOD_AND_DRINKS)
+			.register(creativeTab -> 
+				creativeTab.insertAfter(Items.MELON_SLICE, Items.GLISTERING_MELON_SLICE)
+			);
 	}
 
 	public static Identifier id(String path) {
