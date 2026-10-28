@@ -6,7 +6,8 @@
 		"NoiseBasedChunkGeneratorMixin",
 		"BedExplosionMixin",
 		"GoatHornUseMixin",
-		"PassableLeavesMixin"
+		"PassableLeavesMixin",
+		"RangedAttributeAccessor"
 	],
 	"injectors": {
 		"defaultRequire": 1
