@@ -1,0 +1,8 @@
+{
+  "replace": true,
+  "values": [
+    "#minecraft:needs_diamond_tool",
+    "#better-vanilla:needs_gold_tool",
+    "#better-vanilla:needs_iron_tool"
+  ]
+}
